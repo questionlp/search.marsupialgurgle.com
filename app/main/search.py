@@ -10,6 +10,7 @@ from typing import Any
 
 from mysql.connector.connection import MySQLConnection
 from mysql.connector.cursor import MySQLCursor
+from mysql.connector.errors import DatabaseError, ProgrammingError
 from mysql.connector.pooling import PooledMySQLConnection
 from slugify import slugify
 
@@ -42,27 +43,33 @@ def search_clips(
     if not database_connection.is_connected():
         database_connection.reconnect()
 
-    match search_mode:
-        case SearchMode.NATURAL:
-            query = (
-                "SELECT COUNT(c.id) AS total_count "
-                "FROM clips c "
-                "JOIN tags t ON t.clip_id = c.id "
-                "WHERE MATCH (t.title, t.album, t.artist) "
-                "AGAINST (%s IN NATURAL LANGUAGE MODE)"
-            )
-        case SearchMode.BOOLEAN:
-            query = (
-                "SELECT COUNT(c.id) AS total_count "
-                "FROM clips c "
-                "JOIN tags t ON t.clip_id = c.id "
-                "WHERE MATCH (t.title, t.album, t.artist) "
-                "AGAINST (%s IN BOOLEAN MODE)"
-            )
     cursor = database_connection.cursor(dictionary=True)
-    cursor.execute(query, (search_query,))
-    result = cursor.fetchone()
-    cursor.close()
+    try:
+        match search_mode:
+            case SearchMode.NATURAL:
+                query = (
+                    "SELECT COUNT(c.id) AS total_count "
+                    "FROM clips c "
+                    "JOIN tags t ON t.clip_id = c.id "
+                    "WHERE MATCH (t.title, t.album, t.artist) "
+                    "AGAINST (%s IN NATURAL LANGUAGE MODE)"
+                )
+            case SearchMode.BOOLEAN:
+                query = (
+                    "SELECT COUNT(c.id) AS total_count "
+                    "FROM clips c "
+                    "JOIN tags t ON t.clip_id = c.id "
+                    "WHERE MATCH (t.title, t.album, t.artist) "
+                    "AGAINST (%s IN BOOLEAN MODE)"
+                )
+        cursor.execute(query, (search_query,))
+        result = cursor.fetchone()
+    except ProgrammingError:
+        return {"error": "ProgrammingError"}
+    except DatabaseError:
+        return {"error": "DatabaseError"}
+    finally:
+        cursor.close()
 
     if result is None:
         return {"total_count": 0, "returned_count": 0, "results": []}
@@ -71,38 +78,56 @@ def search_clips(
     if total_count == 0:
         return {"total_count": 0, "returned_count": 0, "results": []}
 
-    match search_mode:
-        case SearchMode.NATURAL:
-            query = (
-                "SELECT c.id, c.key, c.mp3, c.m4a, c.m4r, t.artist, t.album, "
-                "t.title, t.year "
-                "FROM clips c "
-                "JOIN tags t ON t.clip_id = c.id "
-                "WHERE MATCH (t.title, t.album, t.artist) "
-                "AGAINST (%s IN NATURAL LANGUAGE MODE) "
-                "LIMIT %s OFFSET %s"
-            )
-        case SearchMode.BOOLEAN:
-            query = (
-                "SELECT c.id, c.key, c.mp3, c.m4a, c.m4r, t.artist, t.album, "
-                "t.title, t.year "
-                "FROM clips c "
-                "JOIN tags t ON t.clip_id = c.id "
-                "WHERE MATCH (t.title, t.album, t.artist) "
-                "AGAINST (%s IN BOOLEAN MODE) "
-                "LIMIT %s OFFSET %s"
-            )
     cursor: MySQLCursor | Any = database_connection.cursor(dictionary=True)
-    cursor.execute(
-        query,
-        (
-            search_query,
-            results_per_page,
-            offset,
-        ),
-    )
-    results = cursor.fetchall()
-    cursor.close()
+    try:
+        match search_mode:
+            case SearchMode.NATURAL:
+                query = (
+                    "SELECT c.id, c.key, c.mp3, c.m4a, c.m4r, t.artist, t.album, "
+                    "t.title, t.year "
+                    "FROM clips c "
+                    "JOIN tags t ON t.clip_id = c.id "
+                    "WHERE MATCH (t.title, t.album, t.artist) "
+                    "AGAINST (%s IN NATURAL LANGUAGE MODE) "
+                    "LIMIT %s OFFSET %s"
+                )
+                cursor.execute(
+                    query,
+                    (
+                        search_query,
+                        results_per_page,
+                        offset,
+                    ),
+                )
+            case SearchMode.BOOLEAN:
+                query = (
+                    "SELECT c.id, c.key, c.mp3, c.m4a, c.m4r, t.artist, t.album, "
+                    "t.title, t.year, MATCH (t.title, t.album, t.artist) "
+                    "AGAINST (%s IN BOOLEAN MODE) AS score "
+                    "FROM clips c "
+                    "JOIN tags t ON t.clip_id = c.id "
+                    "WHERE MATCH (t.title, t.album, t.artist) "
+                    "AGAINST (%s IN BOOLEAN MODE) "
+                    "ORDER BY score DESC "
+                    "LIMIT %s OFFSET %s"
+                )
+                cursor.execute(
+                    query,
+                    (
+                        search_query,
+                        search_query,
+                        results_per_page,
+                        offset,
+                    ),
+                )
+
+        results = cursor.fetchall()
+    except ProgrammingError:
+        return {"error": "ProgrammingError"}
+    except DatabaseError:
+        return {"error": "DatabaseError"}
+    finally:
+        cursor.close()
 
     if not results:
         return {"total_count": 0, "returned_count": 0, "results": []}

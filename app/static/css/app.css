@@ -12427,6 +12427,16 @@ html,
 body {
   height: 100%;
 }
+html h2, html .h2,
+body h2,
+body .h2 {
+  font-size: 1.4rem;
+}
+html h3, html .h3,
+body h3,
+body .h3 {
+  font-size: 1.2rem;
+}
 
 nav h1, nav .h1 {
   line-height: 1;
@@ -12465,6 +12475,13 @@ main#results article.audio-clip h2, main#results article.audio-clip .h2 {
 main#results article.audio-clip .download-info .btn.disabled {
   cursor: not-allowed;
   pointer-events: all !important;
+}
+
+footer .footer.links ul {
+  list-style-type: none;
+}
+footer .footer.links ul li {
+  display: inline;
 }
 
 @media only screen and (max-width: 768px) {

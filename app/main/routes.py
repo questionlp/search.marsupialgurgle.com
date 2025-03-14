@@ -22,7 +22,13 @@ blueprint = Blueprint("main", __name__)
 @blueprint.route("/")
 def index() -> str:
     """View: Landing Page."""
-    return render_template("pages/index.html")
+    return render_template("pages/index.html", exclude_footer_links=True)
+
+
+@blueprint.route("/help")
+def help_page() -> str:
+    """View: Help Page."""
+    return render_template("pages/help.html")
 
 
 @blueprint.route("/robots.txt")
@@ -70,6 +76,14 @@ def search() -> str:
         database_connection=database_connection,
     )
     database_connection.close()
+
+    if "error" in results_info:
+        return render_template(
+            "pages/search.html",
+            search_query=query,
+            search_mode=search_mode.value,
+            error=results_info["error"],
+        )
 
     total_count: int = results_info["total_count"]
     total_pages: int = math.ceil(total_count / results_per_page)
