@@ -15,6 +15,7 @@ def load_app_settings(
     app_settings_path: str = "app_settings.json",
     app_time_zone: str = "UTC",
     results_per_page: int = 15,
+    max_query_string_length: int = 120,
 ) -> dict[str, dict | int | str | bool] | None:
     """Load application configuration settings."""
     _app_settings_path = Path(app_settings_path)
@@ -26,6 +27,14 @@ def load_app_settings(
 
         if not app_settings:
             return None
+
+        # Process Maximum Search Query String Length (default: 120)
+        max_query_length: int = int(
+            app_settings.get("max_query_length", max_query_string_length)
+        )
+        max_query_length = max(max_query_length, 1)
+        max_query_length = min(max_query_length, max_query_string_length)
+        app_settings["max_query_length"] = max_query_length
 
         # Process time zone configuration settings
         time_zone = app_settings.get("time_zone", app_time_zone)

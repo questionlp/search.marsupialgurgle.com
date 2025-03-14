@@ -5,8 +5,9 @@
         <form class="d-flex z-0" role="search" method="GET" action="{{ url_for('main.search') }}">
             <label class="visually-hidden" for="query">Search</label>
             <div class="input-group mt-1 pb-1" id="top-search-input">
-                <input class="form-control me-0" id="query" name="query" type="search" maxlength="100"
-                    placeholder="Search Audio Clips" {% if search_query %}value="{{ search_query }}" {% endif %}
+                <input class="form-control me-0" id="query" name="query" type="search"
+                    maxlength="{{ max_query_length }}" placeholder="Search Audio Clips"
+                    {% if search_query %}value="{{ search_query }}"{% endif %}
                     aria-label="Search">
                 <select class="form-select" aria-label="Select search mode" id="mode" name="mode">
                     {% if not search_mode or search_mode == 1 %}

@@ -1,5 +1,6 @@
 {
     "block_ai_scrapers": true,
+    "max_query_length": 120,
     "mg_audio_url_prefix": "https://audio.marsupialgurgle.com",
     "results_per_page": 12,
     "site_url": "",
