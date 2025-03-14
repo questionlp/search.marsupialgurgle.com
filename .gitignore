@@ -2,6 +2,9 @@
 app_settings.json
 database_settings.json
 
+## Gunicorn Configuration File
+gunicorn.conf.py
+
 ## Python
 # Byte-compiled / optimized / DLL files
 __pycache__/
