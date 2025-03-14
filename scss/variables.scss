@@ -1,0 +1,39 @@
+// IBM Design Colors
+@use "./colors-ibm" as ibm;
+
+// Color Overrides
+@import "./colors-override";
+
+$font-family-sans-serif: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", "Roboto", "Helvetica Neue", "Inter", "Noto Sans", "Liberation Sans", "Arial", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !default;
+$font-family-monospace: "SFMono-Regular", "Menlo", "Consolas", "Monaco", "Liberation Mono", "Lucida Console", "Courier New", monospace !default;
+$input-btn-font-family: $font-family-sans-serif !default;
+
+// Enable use of data-bs-theme for color mode
+$color-mode-type: data;
+
+// Reduce motion and disable transitions
+$enable-reduced-motion: true;
+$enable-transitions: false;
+
+// Using IBM Carbon Design Gray 10 for Light theme
+$body-color: ibm.$gray-100 !default;
+$body-bg: ibm.$gray-10 !default;
+
+// Using IBM Carbon Design Gray 100 for Dark theme
+$body-color-dark: ibm.$gray-10 !default;
+$body-bg-dark: ibm.$gray-100 !default;
+
+$primary: ibm.$blue-60 !default;
+$secondary: ibm.$gray-60 !default;
+$success: ibm.$success !default;
+$info: ibm.$teal-40 !default;
+$warning: ibm.$alert-40 !default;
+$danger: ibm.$alert-60 !default;
+$light: ibm.$gray-10 !default;
+$dark: ibm.$gray-90 !default;
+
+$link-color: ibm.$blue-90 !default;
+$link-color-dark: ibm.$blue-40 !default;
+
+$article-clip-bg: ibm.$gray-20;
+$article-clip-bg-dark: ibm.$gray-90;

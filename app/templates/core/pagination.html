@@ -1,0 +1,53 @@
+<nav aria-label="Search results pagination">
+    <ul class="pagination justify-content-center pt-4">
+    {% if current_page == 1 %}
+    <li class="page-item disabled">
+        <a class="page-link">
+            <i class="bi bi-chevron-left" aria-hidden="true"></i>
+            <span class="d-none">Previous Page</span>
+        </a>
+    </li>
+    {% else %}
+    {% set previous_page = current_page - 1 %}
+    <li class="page-item">
+        <a class="page-link" href="{{ url_for('main.search', _method='GET', query=search_query, page=previous_page)}}">
+            <i class="bi bi-chevron-left" aria-hidden="true"></i>
+            <span class="d-none">Previous Page</span>
+        </a>
+    </li>
+    {% endif %}
+
+    {% for item in pagination_list %}
+        {% if item == current_page %}
+        <li class="page-item active" aria-current="page">
+            <a class="page-link">{{ current_page }}</a>
+        </li>
+        {% elif item == None %}
+        <li class="page-item">
+            <a class="page-link">...</a>
+        </li>
+        {% else %}
+        <li class="page-item">
+            <a class="page-link" href="{{ url_for('main.search', _method='GET', query=search_query, page=item)}}">{{ item }}</a>
+        </li>
+        {% endif %}
+    {% endfor %}
+
+    {% if current_page == total_pages %}
+    <li class="page-item disabled">
+        <a class="page-link">
+            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            <span class="d-none">Next Page</span>
+        </a>
+    </li>
+    {% else %}
+    {% set next_page = current_page + 1 %}
+    <li class="page-item">
+        <a class="page-link" href="{{ url_for('main.search', _method='GET', query=search_query, page=next_page)}}">
+            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+            <span class="d-none">Next Page</span>
+        </a>
+    </li>
+    {% endif %}
+    </ul>
+</nav>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% include "core/head.html" with context %}
+    <title>{% block page_title %}{% endblock page_title %}</title>
+</head>
+
+<body class="d-flex flex-column h-100">
+    {% block content %}{% endblock content %}
+
+    {% include "core/footer.html" %}
+</body>
+
+</html>

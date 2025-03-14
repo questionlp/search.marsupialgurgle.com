@@ -1,0 +1,61 @@
+<a class="visually-hidden-focusable" id="skip-nav" href="#results">Skip to search results</a>
+<nav class="navbar border-bottom shadow-sm" id="main-nav">
+    <div class="container-fluid justify-content-start">
+        <h1 class="pb-1"><a class="navbar-brand align-middle" href="{{ url_for('main.index') }}">Hey Gurgle</a></h1>
+        <form class="d-flex z-0" role="search" method="GET" action="{{ url_for('main.search') }}">
+            <label class="visually-hidden" for="query">Search</label>
+            <div class="input-group mt-1 pb-1" id="top-search-input">
+                <input class="form-control me-0" id="query" name="query" type="search" maxlength="100"
+                    placeholder="Search Audio Clips" {% if search_query %}value="{{ search_query }}" {% endif %}
+                    aria-label="Search">
+                <select class="form-select" aria-label="Select search mode" id="mode" name="mode">
+                    {% if not search_mode or search_mode == 1 %}
+                    <option value="1" title="Natural language search mode" selected>Default</option>
+                    {% else %}
+                    <option value="1" title="Natural language search mode">Default</option>
+                    {% endif %}
+                    {% if search_mode == 2 %}
+                    <option value="2" title="Boolean search mode" selected>Boolean</option>
+                    {% else %}
+                    <option value="2" title="Boolean search mode">Boolean</option>
+                    {% endif %}
+                </select>
+                <button type="submit" class="btn btn-primary me-2">
+                    <i class="bi bi-search"></i>
+                    <span class="d-none">Search</span>
+                </button>
+            </div>
+
+        </form>
+        <div class="mx-auto"></div>
+        <div class="dropdown d-none d-md-block end-0 me-3 bd-mode-toggle">
+            <button class="btn btn-link nav-link dropdown-toggle d-flex align-items-center" id="bd-theme" type="button"
+                title="Toggle color theme" data-bs-toggle="dropdown" data-bs-display="static"
+                aria-label="Toggle Color Theme (Auto)" aria-expanded="false">
+                <i class="bi bi-circle-half"></i>
+                <span class="d-none" id="bd-theme-text">Toggle theme</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end z-3" id="theme-dropdown" aria-labelledby="bd-theme-text">
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="light"
+                        aria-pressed="false">
+                        <i class="bi bi-sun-fill me-2"></i> Light
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center" data-bs-theme-value="dark"
+                        aria-pressed="false">
+                        <i class="bi bi-moon-stars-fill me-2"></i> Dark
+                    </button>
+                </li>
+                <li>
+                    <button type="button" class="dropdown-item d-flex align-items-center active"
+                        data-bs-theme-value="auto" aria-pressed="true">
+                        <i class="bi bi-circle-half me-2"></i> Auto
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</nav>

@@ -1,0 +1,29 @@
+{
+    "name": "search.marsupialgurgle.com",
+    "version": "0.0.1",
+    "description": "Marsupial Gurgle Audio Clip Search Site",
+    "author": {
+        "name": "Linh Pham",
+        "url": "https://linhpham.org/",
+        "email": "dev@linhpham.org"
+    },
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "compile": "sass --no-source-map scss/main.scss:app/static/css/app.css",
+        "compile-minified": "sass --no-source-map --style=compressed scss/main.scss:app/static/css/app.min.css",
+        "copy-fonts": "cp -r node_modules/@ibm/plex-sans/fonts/* node_modules/@ibm/plex-mono/fonts/* app/static/fonts/",
+        "copy-bundle": "cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map app/static/js/",
+        "copy-icons": "cp -r node_modules/bootstrap-icons app/static/ && rm -r app/static/bootstrap-icons/icons",
+        "serve": "serve -CSd app/"
+    },
+    "dependencies": {
+        "@ibm/plex-mono": "^1.1.0",
+        "@ibm/plex-sans": "^1.1.0",
+        "bootstrap": "^5.3.3",
+        "bootstrap-icons": "^1.11.3",
+        "css-minify": "^2.1.0",
+        "sass": "^1.85.1",
+        "serve": "^14.2.4"
+    }
+}

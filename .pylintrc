@@ -1,0 +1,6 @@
+[design]
+max-locals = 20
+max-module-lines = 1200
+
+[MESSAGES CONTROL]
+disable=consider-using-dict-items

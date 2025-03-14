@@ -1,0 +1,15 @@
+{
+    "python.testing.pytestEnabled": true,
+    "[python]": {
+        "diffEditor.ignoreTrimWhitespace": false,
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.sortImports": "explicit",
+        },
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "pylint.args": [
+        "--disable=C0206"
+    ]
+}

@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "errors/head.html" with context %}
+    <title>{% block page_title %}{% endblock page_title %}</title>
+</head>
+
+<body>
+    {% block content %}{% endblock content %}
+</main>
+</body>
+</html>

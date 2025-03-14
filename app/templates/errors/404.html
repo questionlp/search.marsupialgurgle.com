@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block page_title %}Not Found | Hey Gurgle: Marsupial Gurgle Audio Archive Search{% endblock page_title %}
+
+{% block content %}
+<main class="m-3 p-3">
+    <h1>Oops!</h1>
+
+    <div class="mt-4">
+        <p>The page you are looking for may have been accidentally left on a USB drive in a parking lot somewhere.</p>
+
+        <p>Head back to the <a href="{{ url_for('main.index') }}"> main page</a>.</p>
+    </div>
+    </div>
+</main>
+{% endblock %}

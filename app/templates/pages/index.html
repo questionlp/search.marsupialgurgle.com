@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block page_title %}Hey Gurgle: Marsupial Gurgle Audio Archive Search{% endblock page_title %}
+
+{% block content %}
+{% include "core/nav_home.html" %}
+
+<main id="home" class="mt-auto mx-5">
+    <h2 id="main-brand" class="text-center">Hey Gurgle</h2>
+    <form class="my-3" role="search" method="GET" action="{{ url_for('main.search') }}">
+        <label class="visually-hidden" for="query">Search</label>
+        <div id="main-search-input" class="input-group my-3">
+            <input type="text" class="form-control" id="query" name="query" placeholder="Search Audio Clips">
+            <select class="form-select" aria-label="Select search mode" id="mode" name="mode">
+                <option selected value="1" title="Natural language search mode">Default
+                </option>
+                <option value="2" title="Boolean search mode">Boolean</option>
+            </select>
+            <button type="submit" class="btn btn-primary me-0" title="Search">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>
+    </form>
+</main>
+{% endblock content %}

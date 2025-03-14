@@ -1,0 +1,69 @@
+html,
+body {
+    height: 100%;
+}
+
+nav {
+    h1 {
+        line-height: 1;
+
+        .navbar-brand {
+            font-weight: 500;
+        }
+    }
+
+    input#query {
+        min-width: 40vw;
+        max-width: 60vw;
+    }
+
+    select#mode {
+        max-width: 8rem;
+
+    }
+}
+
+main#home {
+    h2#main-brand {
+        font-size: 3.6rem;
+    }
+
+    form {
+        min-width: 60vw;
+        max-width: 70vw;
+        margin: 0 auto;
+    }
+
+    select#mode {
+        max-width: 8rem;
+    }
+}
+
+main#results {
+    h2#search-results {
+        font-size: 1.3rem;
+    }
+
+    article.audio-clip {
+        h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: unset;
+        }
+
+        .download-info {
+            .btn.disabled {
+                cursor: not-allowed;
+                pointer-events: all !important;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    main#home {
+        form {
+            max-width: 85vw;
+        }
+    }
+}

@@ -1,0 +1,17 @@
+<footer class="mt-auto pt-3 pb-1">
+    <div class="footer mt-auto">
+        <div class="container-fluid">
+            <p>
+                Audio archive search engine for <a href="https://marsupialgurgle.com/">Marsupial Gurgle</a>.
+                Version {{ app_version }}.
+            </p>
+            <p>
+                Site Copyright &copy; <a href="https://linhpham.org/">Linh Pham</a>
+                2025{% if current_year(time_zone) > "2025" %}&ndash;{{ current_year(time_zone) }}{% endif %}.
+                All rights reserved.
+
+                <a href="">Source code</a>.
+            </p>
+        </div>
+    </div>
+</footer>
