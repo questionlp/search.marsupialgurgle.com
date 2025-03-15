@@ -8,7 +8,14 @@
 import math
 from pathlib import Path
 
-from flask import Blueprint, Response, current_app, render_template, request, send_file
+from flask import (
+    Blueprint,
+    Response,
+    current_app,
+    g,
+    render_template,
+    send_file,
+)
 from mysql.connector import connect
 from mysql.connector.connection import MySQLConnection
 from mysql.connector.pooling import PooledMySQLConnection
@@ -22,7 +29,13 @@ blueprint = Blueprint("main", __name__)
 @blueprint.route("/")
 def index() -> str:
     """View: Landing Page."""
-    return render_template("pages/index.html")
+    return render_template("pages/index.html", exclude_footer_links=True)
+
+
+@blueprint.route("/help")
+def help_page() -> str:
+    """View: Help Page."""
+    return render_template("pages/help.html")
 
 
 @blueprint.route("/robots.txt")
@@ -40,19 +53,26 @@ def robots_txt() -> Response:
 @blueprint.route("/search")
 def search() -> str:
     """View: Search Results."""
-    query: str | None = request.args.get("query")
+    request_data = g.sanitized_args
+    query: str | None = request_data.get("query")
 
     if not query:
         return render_template(
             "pages/search.html",
         )
 
+    # Strip whitespaces from and enforce length limit on query string
     query = query.strip()
-    page: int = max(request.args.get("page", type=int, default=1), 1)
+    query = query[: current_app.config["app_settings"]["max_query_length"]]
+
     try:
-        search_mode: SearchMode = SearchMode(
-            request.args.get("mode", type=int, default=1)
-        )
+        page: int = int(request_data.get("page", 1))
+        page = max(page, 1)
+    except ValueError:
+        page = 1
+
+    try:
+        search_mode: SearchMode = SearchMode(int(request_data.get("mode", 1)))
     except ValueError:
         search_mode: SearchMode = SearchMode.NATURAL
 
@@ -70,6 +90,14 @@ def search() -> str:
         database_connection=database_connection,
     )
     database_connection.close()
+
+    if "error" in results_info:
+        return render_template(
+            "pages/search.html",
+            search_query=query,
+            search_mode=search_mode.value,
+            error=results_info["error"],
+        )
 
     total_count: int = results_info["total_count"]
     total_pages: int = math.ceil(total_count / results_per_page)

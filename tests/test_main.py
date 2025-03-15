@@ -19,6 +19,15 @@ def test_index(client: FlaskClient) -> None:
     assert "Search Audio Clips" in response.text
 
 
+def test_help_page(client: FlaskClient) -> None:
+    """Testing main.help_page."""
+    response: TestResponse = client.get("/help")
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "Marsupial Gurgle" in response.text
+    assert "Help Page" in response.text
+
+
 @pytest.mark.parametrize("query, mode", [("andrew", 1), ("luke", 2)])
 def test_search(client: FlaskClient, query: str, mode: int) -> None:
     """Testing main.search with queries."""

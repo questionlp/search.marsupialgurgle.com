@@ -1,6 +1,14 @@
 html,
 body {
     height: 100%;
+
+    h2 {
+        font-size: 1.4rem;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
 }
 
 nav {
@@ -55,6 +63,18 @@ main#results {
             .btn.disabled {
                 cursor: not-allowed;
                 pointer-events: all !important;
+            }
+        }
+    }
+}
+
+footer {
+    .footer.links {
+        ul {
+            list-style-type: none;
+
+            li {
+                display: inline;
             }
         }
     }

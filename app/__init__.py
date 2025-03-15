@@ -6,6 +6,7 @@
 """Application Initialization for Flask Application."""
 
 from flask import Flask
+from flask_sanitize_escape import SanitizeEscapeExtension
 
 from app import config
 from app.errors import handlers
@@ -45,6 +46,7 @@ def create_app() -> Flask:
         _app_settings.get("block_ai_scrapers", False)
     )
     app.jinja_env.globals["current_year"] = current_year
+    app.jinja_env.globals["max_query_length"] = _app_settings["max_query_length"]
     app.jinja_env.globals["mg_audio_url_prefix"] = _app_settings.get(
         "mg_audio_url_prefix"
     )
@@ -55,6 +57,10 @@ def create_app() -> Flask:
     app.jinja_env.globals["use_minified_css"] = bool(
         _app_settings.get("use_minified_css, False")
     )
+
+    # Register Flask Sanitize Escape
+    sanitize_extension = SanitizeEscapeExtension(app, sanitize_quotes=False)
+    sanitize_extension.init_app(app)
 
     # Register Application Blueprints
     app.register_blueprint(main_bp)

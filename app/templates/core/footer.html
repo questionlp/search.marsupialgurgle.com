@@ -1,17 +1,28 @@
-<footer class="mt-auto pt-3 pb-1">
-    <div class="footer mt-auto">
+<footer class="mt-auto pt-3 pb-2 mx-1">
+    <div class="footer links">
         <div class="container-fluid">
-            <p>
-                Audio archive search engine for <a href="https://marsupialgurgle.com/">Marsupial Gurgle</a>.
-                Version {{ app_version }}.
-            </p>
-            <p>
-                Site Copyright &copy; <a href="https://linhpham.org/">Linh Pham</a>
-                2025{% if current_year(time_zone) > "2025" %}&ndash;{{ current_year(time_zone) }}{% endif %}.
-                All rights reserved.
-
-                <a href="">Source code</a>.
-            </p>
+            <ul class="mt-1 p-0">
+                <li class="pe-2"><a href="{{ url_for('main.help_page') }}">Help</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer mt-auto copyright">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div>
+                        Audio archive search engine for <a href="https://marsupialgurgle.com/">Marsupial Gurgle</a>.
+                    </div>
+                    <div>
+                        Site Copyright &copy; <a href="https://linhpham.org/">Linh Pham</a>
+                        2025.
+                    </div>
+                </div>
+                <div class="col-lg-6 text-end">
+                    <div>V: {{ app_version }}</div>
+                    <div><a href="">Source code</a></div>
+                </div>
+            </div>
         </div>
     </div>
 </footer>

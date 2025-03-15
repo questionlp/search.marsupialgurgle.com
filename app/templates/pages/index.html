@@ -9,7 +9,8 @@
     <form class="my-3" role="search" method="GET" action="{{ url_for('main.search') }}">
         <label class="visually-hidden" for="query">Search</label>
         <div id="main-search-input" class="input-group my-3">
-            <input type="text" class="form-control" id="query" name="query" placeholder="Search Audio Clips">
+            <input type="text" class="form-control" id="query" name="query"
+                maxlength="{{ max_query_length }}" placeholder="Search Audio Clips">
             <select class="form-select" aria-label="Select search mode" id="mode" name="mode">
                 <option selected value="1" title="Natural language search mode">Default
                 </option>
