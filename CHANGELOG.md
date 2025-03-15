@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.0.0-rc2
+
+### Application Changes
+
+- Fixed incorrect configuration key name when reading in the `git_repository` config key value on application initialization
+
 ## Version 1.0.0-rc1
 
 ### Application Changes

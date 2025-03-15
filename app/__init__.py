@@ -46,7 +46,7 @@ def create_app() -> Flask:
         _app_settings.get("block_ai_scrapers", False)
     )
     app.jinja_env.globals["current_year"] = current_year
-    app.jinja_env.globals["github_repository"] = _app_settings.get("github_repository")
+    app.jinja_env.globals["git_repository"] = _app_settings.get("git_repository")
     app.jinja_env.globals["max_query_length"] = _app_settings["max_query_length"]
     app.jinja_env.globals["mg_audio_url_prefix"] = _app_settings.get(
         "mg_audio_url_prefix"
