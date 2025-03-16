@@ -1,5 +1,9 @@
 # Application Change Log
 
+## Version 1.0.0
+
+- Promoting version 1.0.0-rc3 to 1.0.0, no application or component changes
+
 ## Version 1.0.0-rc3
 
 ### Application Changes
