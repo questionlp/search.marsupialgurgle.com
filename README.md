@@ -26,7 +26,25 @@ If you would like contribute to this project, please make sure to review both th
 
 This web application is licensed under the terms of the [MIT License](./LICENSE).
 
-Additional packages included in this repository and distributed under the corresponding license terms listed below:
+Additional packages that are distributed with the web application or reference available APIs
+from libraries are distributed under the corresponding license terms listed below:
+
+### Web Application Backend
+
+- Flask
+  - [3-Clause BSD License](https://github.com/pallets/flask/blob/main/LICENSE.txt)
+- flask-sanitize-escape
+  - [MIT License](https://github.com/mayur19/flask-sanitize-escape/blob/main/LICENSE)
+- Gunicorn
+  - [MIT License](https://github.com/benoitc/gunicorn/blob/master/LICENSE)
+- MySQL Connector/Python
+  - [GNU General Public License v2](https://downloads.mysql.com/docs/licenses/connector-python-9.2-gpl-en.pdf)
+- python-slugify
+  - [MIT License](https://github.com/un33k/python-slugify/blob/master/LICENSE)
+- pytz
+  - [MIT License](https://pythonhosted.org/pytz/#license)
+
+### Web Application Frontend
 
 - Bootstrap
   - [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE)

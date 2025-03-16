@@ -19,6 +19,15 @@ def test_index(client: FlaskClient) -> None:
     assert "Search Audio Clips" in response.text
 
 
+def test_about(client: FlaskClient) -> None:
+    """Testing main.index."""
+    response: TestResponse = client.get("/about")
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "The Hey Gurgle Name" in response.text
+    assert "About" in response.text
+
+
 def test_help_page(client: FlaskClient) -> None:
     """Testing main.help_page."""
     response: TestResponse = client.get("/help")
