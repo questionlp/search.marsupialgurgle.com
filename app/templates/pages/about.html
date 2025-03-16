@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+About | Hey Gurgle: Marsupial Gurgle Audio Archive Search
+{% endblock page_title %}
+
+{% block content %}
+{% include "core/nav.html" %}
+
+<main class="mt-3 mb-1">
+    <span class="d-none" id="content-top"></span>
+    <div class="container-fluid p-4 pt-3"> 
+        <h2>About</h2>
+        <p>
+            <b>Hey Gurgle</b> is a search engine for the
+            <a href="https://marsupialgurgle.com/">Marsupial Gurgle</a> audio clip
+            archive for the podcast, <a href="https://tbtl.net/">TBTL: Too Beautiful
+            to Live</a> and born out of the need for a better searching mechanism for
+            specific audio clips.
+        </p>
+
+        <p>
+            Marsupial Gurgle is uses WordPress for its content management system and
+            every clip is catalogued blog posts or standalone pages, or both. Searching
+            for a clip means that the search results would be for blog posts or pages,
+            and not the clips individually.
+        </p>
+
+        <p>
+            As part of a larger project, each of the audio clips uploaded to the backing
+            storage for Marsupial Gurgle has been re-indexed and the metadata stored in
+            a database where full-text searching can be done for individual clips.
+        </p>
+
+        <h3>The Hey Gurgle Name</h3>
+        <p>
+            The <b>Hey Gurgle</b> name was chosen to represent the Marsupial Gurgle
+            website and audio clip archive, along with the "Gorgle" spoof on Google's
+            voice assistant wake up phrase and its proximity to the word "gurgle".
+        </p>
+
+        <p>
+            At various points in the podcast, Luke Burbank or Andrew Walsh have said
+            <q>Hey, Gorgle!</q> dozens of times. It made sense to name the Marsupial
+            Gurgle audio clip search engine, <b>Hey Gurgle</b>.
+        </p>
+
+        <h3>Technical Details</h3>
+        <p>
+            The search engine is written in <a href="https://www.python.org/">Python</a>,
+            built using the <a href="https://flask.palletsprojects.com/">Flask</a> web
+            application framework for the backend and
+            <a href="https://getbootstrap.com/">Bootstrap</a> toolkit for the frontend.
+            The database with the audio clip metadata runs on
+            <a href="https://www.mysql.com/">MySQL Server</a> and uses the included
+            full-text searching feature and the natural language and boolean search
+            modes.
+        </p>
+
+        <p>
+            To parse through and re-index all of the uploaded audio clips, the
+            <a href="https://github.com/questionlp/marsupialgurgle-audio-parsing">Marsupial
+            Gurgle Audio Clip Parsing Tool</a> was creating in Python, pull audio tag
+            metadata and parse the file paths for all clips, then store the data into
+            the aforementioned MySQL database.
+        </p>
+
+        <h3>Licensing and Acknowledgements</h3>
+        <p>
+            Both the audio clip parsing tool and the <a href="{{ git_repository }}"><b>Hey
+            Gurgle</b> source code</a> are published under the terms of the
+            <a href="{{ git_repository }}/blob/main/LICENSE">MIT License</a>.
+        </p>
+
+        <p>
+            Both the <a href="https://github.com/twbs/bootstrap/blob/main/LICENSE">Bootstrap
+            frontend toolkit</a> and the
+            <a href="https://github.com/twbs/icons/blob/main/LICENSE">Bootstrap
+            Icons</a> are published under the terms of the MIT License.
+        </p>
+
+        <p>
+            The <a href="https://www.ibm.com/plex/">IBM Plex Sans and Mono</a> fonts used are
+            published under the terms of the
+            <a href="https://github.com/IBM/plex/blob/master/LICENSE.txt">SIL Open Font
+            License 1.1</a>.
+        </p>
+
+        <p>
+            For more information on other components used or referenced by the
+            application can be found in the project's
+            <a href="{{ git_repository }}/blob/main/README.md">[README file]</a>.
+        </p>
+    </div>
+</main>
+{% endblock content %}

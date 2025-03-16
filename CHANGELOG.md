@@ -1,5 +1,13 @@
 # Application Change Log
 
+## Version 1.0.0-rc3
+
+### Application Changes
+
+- Added "About" page with information about the application
+- Updated footer to re-add `exclude_footer_links` flag that was removed due to a previous local undo mess-up
+- Updated [README.md](./README.md) to include additional mentions of dependencies
+
 ## Version 1.0.0-rc2
 
 ### Application Changes

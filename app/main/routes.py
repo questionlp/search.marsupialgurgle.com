@@ -29,7 +29,13 @@ blueprint = Blueprint("main", __name__)
 @blueprint.route("/")
 def index() -> str:
     """View: Landing Page."""
-    return render_template("pages/index.html", exclude_footer_links=True)
+    return render_template("pages/index.html", exclude_footer_links=False)
+
+
+@blueprint.route("/about")
+def about() -> str:
+    """View: About Page."""
+    return render_template("pages/about.html")
 
 
 @blueprint.route("/help")
