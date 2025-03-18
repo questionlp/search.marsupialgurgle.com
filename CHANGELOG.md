@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.0.1
+
+### Application Changes
+
+- Add `<meta name="robots" content="noindex, nofollow">` to `<head>` when there is a search query value parsed by the `/search` route
+
 ## Version 1.0.0
 
 - Promoting version 1.0.0-rc3 to 1.0.0, no application or component changes
