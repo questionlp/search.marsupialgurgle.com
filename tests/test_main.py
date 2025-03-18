@@ -48,6 +48,7 @@ def test_search(client: FlaskClient, query: str, mode: int) -> None:
     assert "article" in response.text
     assert "<audio" in response.text
     assert "Clip Info" in response.text
+    assert "noindex, nofollow" in response.text
 
 
 def test_search_no_query(client: FlaskClient) -> None:
@@ -56,6 +57,7 @@ def test_search_no_query(client: FlaskClient) -> None:
     assert response.status_code == 200
     assert "Hey Gurgle" in response.text
     assert "No search query was provided." in response.text
+    assert "noindex, nofollow" not in response.text
 
 
 @pytest.mark.parametrize(
@@ -69,6 +71,7 @@ def test_search_no_results(client: FlaskClient, query: str, mode: int) -> None:
     assert response.status_code == 200
     assert "Hey Gurgle" in response.text
     assert "No search results found for" in response.text
+    assert "noindex, nofollow" in response.text
 
 
 def test_robots_txt(client: FlaskClient) -> None:
