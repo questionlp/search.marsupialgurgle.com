@@ -1,20 +1,20 @@
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-{% if search_query %}
-<meta name="robots" content="noindex, nofollow">
-{% endif %}
-<link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
-<link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if search_query %}
+    <meta name="robots" content="noindex, nofollow">
+    {% endif %}
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 
-{% if use_minified_css %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/app.min.css') }}">
-{% else %}
-<link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
-{% endif %}
-<link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-icons/font/bootstrap-icons.min.css') }}">
+    {% if use_minified_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.min.css') }}">
+    {% else %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/app.css') }}">
+    {% endif %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap-icons/font/bootstrap-icons.min.css') }}">
 
-{% if umami and umami.enabled %}
-{% include "core/umami.html" %}
-{% endif %}
+    {% if umami and umami.enabled %}
+    {% include "core/umami.html" %}
+    {% endif -%}
 
-{% include "core/init_js.html"%}
+    {% include "core/init_js.html"%}

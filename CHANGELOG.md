@@ -1,5 +1,12 @@
 # Application Change Log
 
+## Version 1.0.2
+
+### Application Changes
+
+- Cleaned up formatting within `<head>` section
+- Fixed location of the `<footer>` section to be within the `<body>` section instead of outside
+
 ## Version 1.0.1
 
 ### Application Changes
