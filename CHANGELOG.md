@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.1.1
+
+### Application Changes
+
+- Fixed an issue where the clip title is not included in the HTML `<title>` tag.
+
 ## Version 1.1.0
 
 ### Application Changes

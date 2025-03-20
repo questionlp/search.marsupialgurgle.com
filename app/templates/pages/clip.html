@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block page_title %}
-{% if clip_info and "title" in clip_info %}Clip Info: {{ clip_info.title }}{% else %}Clip Info{% endif %} | Hey Gurgle: Marsupial Gurgle Audio Archive Search
+{% if clip and "title" in clip %}Clip Info: {{ clip.title }}{% else %}Clip Info{% endif %} | Hey Gurgle: Marsupial Gurgle Audio Archive Search
 {% endblock page_title %}
 
 {% block content %}
