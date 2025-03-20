@@ -28,6 +28,36 @@ def test_about(client: FlaskClient) -> None:
     assert "About" in response.text
 
 
+@pytest.mark.parametrize(
+    "key",
+    ["audio/lukeandrewheygorgle-3171", "audio/chrishayesmentionstbtlallinsegment"],
+)
+def test_clip_info(client: FlaskClient, key: str) -> None:
+    """Testing main.clip_info with a clip key ID."""
+    response: TestResponse = client.get("/clip", query_string={"key": key})
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "Clip Info" in response.text
+    assert key in response.text
+
+
+@pytest.mark.parametrize("key", "THIS_WONT_RETURN_RESULTS")
+def test_clip_info_no_info(client: FlaskClient, key: str) -> None:
+    """Testing main.clip_info with a non-existent clip key ID."""
+    response: TestResponse = client.get("/clip", query_string={"key": key})
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert f"Clip information for <q>{key}</q> could not be found" in response.text
+
+
+def test_clip_info_no_key(client: FlaskClient) -> None:
+    """Testing main.clip_info without a clip key ID."""
+    response: TestResponse = client.get("/clip")
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "No clip key was provided" in response.text
+
+
 def test_help_page(client: FlaskClient) -> None:
     """Testing main.help_page."""
     response: TestResponse = client.get("/help")
