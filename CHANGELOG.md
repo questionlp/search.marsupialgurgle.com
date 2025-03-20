@@ -1,5 +1,23 @@
 # Application Change Log
 
+## Version 1.1.0
+
+### Application Changes
+
+- Added a new clip information page that provides information for a given clip key ID
+  - By default, the normally collapsed clip metadata card is shown in the clip information page
+- Added a permalink for each clip returned in a search result that links to the corresponding clip information page
+- Created a new template file for the audio clip block that is shared between the search result page and the clip information page
+- Switched how the `<html>` block was getting its height set to 100% from a custom SCSS file to using the `.h-100` helper from Bootstrap
+- Updated the footer to include range of copyright years past 2025
+- Updated the generated sitemap to include the Help and About pages
+- Updated the head template file to include the `robots` meta tag when there is either a parsed search query value or a clip key ID value
+- Updated the pagination control in the search result page to change the "..." item from a link to a span
+
+### Development Changes
+
+- Add testing search queries with page number as a request argument
+
 ## Version 1.0.2
 
 ### Application Changes

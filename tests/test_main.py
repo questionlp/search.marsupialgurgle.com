@@ -28,6 +28,36 @@ def test_about(client: FlaskClient) -> None:
     assert "About" in response.text
 
 
+@pytest.mark.parametrize(
+    "key",
+    ["audio/lukeandrewheygorgle-3171", "audio/chrishayesmentionstbtlallinsegment"],
+)
+def test_clip_info(client: FlaskClient, key: str) -> None:
+    """Testing main.clip_info with a clip key ID."""
+    response: TestResponse = client.get("/clip", query_string={"key": key})
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "Clip Info" in response.text
+    assert key in response.text
+
+
+@pytest.mark.parametrize("key", "THIS_WONT_RETURN_RESULTS")
+def test_clip_info_no_info(client: FlaskClient, key: str) -> None:
+    """Testing main.clip_info with a non-existent clip key ID."""
+    response: TestResponse = client.get("/clip", query_string={"key": key})
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert f"Clip information for <q>{key}</q> could not be found" in response.text
+
+
+def test_clip_info_no_key(client: FlaskClient) -> None:
+    """Testing main.clip_info without a clip key ID."""
+    response: TestResponse = client.get("/clip")
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "No clip key was provided" in response.text
+
+
 def test_help_page(client: FlaskClient) -> None:
     """Testing main.help_page."""
     response: TestResponse = client.get("/help")
@@ -37,11 +67,29 @@ def test_help_page(client: FlaskClient) -> None:
     assert "Help Page" in response.text
 
 
-@pytest.mark.parametrize("query, mode", [("andrew", 1), ("luke", 2)])
+@pytest.mark.parametrize(
+    "query, mode", [("andrew", 1), ('"in the year 2525"', 1), ("luke", 2)]
+)
 def test_search(client: FlaskClient, query: str, mode: int) -> None:
     """Testing main.search with queries."""
     response: TestResponse = client.get(
         "/search", query_string={"query": query, "mode": mode}
+    )
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "article" in response.text
+    assert "<audio" in response.text
+    assert "Clip Info" in response.text
+    assert "noindex, nofollow" in response.text
+
+
+@pytest.mark.parametrize("query, mode, page", [("andrew", 1, 5), ("luke", 2, 1)])
+def test_search_page_number(
+    client: FlaskClient, query: str, mode: int, page: int
+) -> None:
+    """Testing main.search with queries with page numbers."""
+    response: TestResponse = client.get(
+        "/search", query_string={"query": query, "mode": mode, "page": page}
     )
     assert response.status_code == 200
     assert "Hey Gurgle" in response.text

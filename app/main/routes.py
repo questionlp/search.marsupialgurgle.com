@@ -20,6 +20,7 @@ from mysql.connector import connect
 from mysql.connector.connection import MySQLConnection
 from mysql.connector.pooling import PooledMySQLConnection
 
+from app.main.clip import retrieve_clip_info
 from app.main.search import SearchMode, search_clips
 from app.utilities import pagination_list
 
@@ -36,6 +37,37 @@ def index() -> str:
 def about() -> str:
     """View: About Page."""
     return render_template("pages/about.html")
+
+
+@blueprint.route("/clip")
+def clip_info() -> str:
+    """View: Individual Clip Page."""
+    request_data = g.sanitized_args
+    _key: str | None = request_data.get("key")
+
+    if not _key:
+        return render_template("pages/clip.html")
+
+    # Strip whitespaces from and enforce clip key ID length to 254
+    _key = _key.strip()
+    _key = _key[:254]
+
+    database_connection: MySQLConnection | PooledMySQLConnection = connect(
+        **current_app.config["database_settings"]
+    )
+    clip: dict[str, int | str | bool | None] | None = retrieve_clip_info(
+        clip_key=_key, database_connection=database_connection
+    )
+
+    if clip and "error" in clip:
+        return render_template("pages/clip.html", clip_key=_key, error=clip["error"])
+
+    if clip:
+        return render_template(
+            "pages/clip.html", clip_key=_key, clip=clip, expand_info=True
+        )
+
+    return render_template("pages/clip.html", clip_key=_key)
 
 
 @blueprint.route("/help")
@@ -63,9 +95,7 @@ def search() -> str:
     query: str | None = request_data.get("query")
 
     if not query:
-        return render_template(
-            "pages/search.html",
-        )
+        return render_template("pages/search.html")
 
     # Strip whitespaces from and enforce length limit on query string
     query = query.strip()

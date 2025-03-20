@@ -1,6 +1,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% if search_query %}
+    {% if search_query or clip_key %}
     <meta name="robots" content="noindex, nofollow">
     {% endif %}
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">

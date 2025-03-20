@@ -1,0 +1,79 @@
+<article class="audio-clip pb-2">
+    <h2 class="pb-2">
+        {{ clip.title }}
+        <a href="{{ url_for('main.clip_info', key=clip.key) }}" title="Permalink">
+            <i class="bi bi-link-45deg ps-1"></i><span class="d-none">Clip Permalink</span>
+        </a>
+    </h2>
+    <audio controls class="w-100 px-1" preload="none" src="{{ mg_audio_url_prefix }}/{{ clip.mp3_path }}"></audio>
+
+    <div class="download-info px-1 py-2 mb-2">
+        <a class="btn btn-info m-1 ms-0 {{- 'collapsed' if not expand_info }}" data-bs-toggle="collapse"
+            href="#clip-{{ clip.id }}-info" title="Clip Information" role="button"
+            aria-expanded="{{ 'true' if expand_info else 'false' }}" aria-controls="clip-{{ clip.id }}-info">
+            <i class="bi bi-info-circle pe-1"></i>
+            Clip Info
+        </a>
+        {% if clip.mp3_path is not none %}
+        <a class="btn btn-primary m-1 ms-0" role="button" href="{{ mg_audio_url_prefix }}/{{ clip.mp3_path }}">
+            <i class="bi bi-download pe-1"></i><span class="d-none">Download</span>
+            MP3
+        </a>
+        {% else %}
+        <a class="btn btn-dark m-1 ms-0 disabled" aria-disabled="true">
+            <i class="bi bi-dash-circle-dotted pe-1"></i><span class="d-none">Download not available</span>
+            MP3
+        </a>
+        {% endif %}
+        {% if clip.m4a_path is not none %}
+        <a class="btn btn-primary m-1 ms-0" role="button" href="{{ mg_audio_url_prefix }}/{{ clip.m4a_path }}">
+            <i class="bi bi-download pe-1"></i><span class="d-none">Download</span>
+            MPEG-4
+        </a>
+        {% else %}
+        <a class="btn btn-dark m-1 ms-0 disabled" aria-disabled="true">
+            <i class="bi bi-dash-circle-dotted pe-1"></i><span class="d-none">Download not available</span>
+            MPEG-4
+        </a>
+        {% endif %}
+        {% if clip.m4r_path is not none %}
+        <a class="btn btn-primary m-1 ms-0" role="button" href="{{ mg_audio_url_prefix }}/{{ clip.m4r_path }}">
+            <i class="bi bi-download pe-1"></i><span class="d-none">Download</span>
+            MPEG-4 Ringtone
+        </a>
+        {% else %}
+        <a class="btn btn-dark m-1 ms-0 disabled" aria-disabled="true">
+            <i class="bi bi-dash-circle-dotted pe-1"></i><span class="d-none">Download not available</span>
+            MPEG-4 Ringtone
+        </a>
+        {% endif %}
+        <div class="{{- 'show' if expand_info }} collapse pt-3 pb-2" id="clip-{{ clip.id }}-info">
+            <div class="card-group">
+                <div class="card card-body">
+                    <b>Artist:</b>
+                    {% if clip.artist %}
+                    {{ clip.artist }}
+                    {% else %}
+                    N/A
+                    {% endif %}
+                </div>
+                <div class="card card-body">
+                    <b>Album:</b>
+                    {% if clip.album %}
+                    {{ clip.album }}
+                    {% else %}
+                    N/A
+                    {% endif %}
+                </div>
+                <div class="card card-body">
+                    <b>Year:</b>
+                    {% if clip.year %}
+                    {{ clip.year }}
+                    {% else %}
+                    N/A
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
