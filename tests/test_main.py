@@ -67,11 +67,29 @@ def test_help_page(client: FlaskClient) -> None:
     assert "Help Page" in response.text
 
 
-@pytest.mark.parametrize("query, mode", [("andrew", 1), ("luke", 2)])
+@pytest.mark.parametrize(
+    "query, mode", [("andrew", 1), ('"in the year 2525"', 1), ("luke", 2)]
+)
 def test_search(client: FlaskClient, query: str, mode: int) -> None:
     """Testing main.search with queries."""
     response: TestResponse = client.get(
         "/search", query_string={"query": query, "mode": mode}
+    )
+    assert response.status_code == 200
+    assert "Hey Gurgle" in response.text
+    assert "article" in response.text
+    assert "<audio" in response.text
+    assert "Clip Info" in response.text
+    assert "noindex, nofollow" in response.text
+
+
+@pytest.mark.parametrize("query, mode, page", [("andrew", 1, 5), ("luke", 2, 1)])
+def test_search_page_number(
+    client: FlaskClient, query: str, mode: int, page: int
+) -> None:
+    """Testing main.search with queries with page numbers."""
+    response: TestResponse = client.get(
+        "/search", query_string={"query": query, "mode": mode, "page": page}
     )
     assert response.status_code == 200
     assert "Hey Gurgle" in response.text

@@ -16,7 +16,7 @@
                 <div class="col-lg-6 align-bottom">
                     <div>
                         Site Copyright &copy; <a href="https://linhpham.org/">Linh Pham</a>
-                        2025.
+                        2025{% if current_year(time_zone) | int > 2025 %}&ndash;{{ current_year(time_zone)}}{% endif %}.
                     </div>
                     <div>
                         Mastodon: <a href="https://linh.social/@qlp" rel="me">@qlp@linh.social</a>
