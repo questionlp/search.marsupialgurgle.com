@@ -22,6 +22,7 @@
                         (<a href="https://linh.social/@qlp" rel="me">Mastodon</a> |
                         <a href="https://bsky.app/profile/linh.social" rel="me">Bluesky</a>)
                         2025{% if current_year(time_zone) | int > 2025 %}&ndash;{{ current_year(time_zone)}}{% endif %}.
+                        All rights reserved.
                     </div>
                 </div>
                 <div class="col-lg-6 text-lg-end">
@@ -34,45 +35,3 @@
         </div>
     </div>
 </footer>
-
-
-
-
-<!--
-<footer class="mt-auto pt-3 pb-2 mx-1">
-    {% if not exclude_footer_links %}
-    <div class="footer links">
-        <div class="container-fluid">
-            <ul class="mt-1 p-0">
-                <li class="pe-2"><a href="{{ url_for('main.help_page') }}">Help</a></li>
-                <li class="pe-2"><a href="{{ url_for('main.about') }}">About</a></li>
-                <li class="pe-2"><a href="https://marsupialgurgle.com/">Marsupial Gurgle</a></li>
-            </ul>
-        </div>
-    </div>
-    {% endif %}
-    <div class="footer mt-auto copyright">
-        <div class="container-fluid">
-            <div class="row align-bottom">
-                <div class="col-lg-6 align-bottom">
-                    <div>
-                        Site Copyright &copy; <a href="https://linhpham.org/">Linh Pham</a>
-                        2025{% if current_year(time_zone) | int > 2025 %}&ndash;{{ current_year(time_zone)}}{% endif %}.
-                    </div>
-                    <div>
-                        Mastodon: <a href="https://linh.social/@qlp" rel="me">@qlp@linh.social</a>
-                        |
-                        Bluesky: <a href="https://bsky.app/profile/linh.social" rel="me">@linh.social</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 text-end">
-                    <div>V: {{ app_version }}</div>
-                    {% if git_repository %}
-                    <div><a href="https://github.com/questionlp/search.marsupialgurgle.com">Source code</a></div>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
--->
