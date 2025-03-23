@@ -9,6 +9,12 @@ body {
     }
 }
 
+select#mode {
+    max-width: 8rem;
+    cursor: help;
+    container: body;
+}
+
 nav {
     h1 {
         line-height: 1;
@@ -22,11 +28,6 @@ nav {
         min-width: 40vw;
         max-width: 60vw;
     }
-
-    select#mode {
-        max-width: 8rem;
-
-    }
 }
 
 main#home {
@@ -38,10 +39,6 @@ main#home {
         min-width: 60vw;
         max-width: 70vw;
         margin: 0 auto;
-    }
-
-    select#mode {
-        max-width: 8rem;
     }
 }
 

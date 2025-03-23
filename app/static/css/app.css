@@ -12434,6 +12434,12 @@ body .h3 {
   font-size: 1.2rem;
 }
 
+select#mode {
+  max-width: 8rem;
+  cursor: help;
+  container: body;
+}
+
 nav h1, nav .h1 {
   line-height: 1;
 }
@@ -12444,9 +12450,6 @@ nav input#query {
   min-width: 40vw;
   max-width: 60vw;
 }
-nav select#mode {
-  max-width: 8rem;
-}
 
 main#home h2#main-brand, main#home #main-brand.h2 {
   font-size: 3.6rem;
@@ -12455,9 +12458,6 @@ main#home form {
   min-width: 60vw;
   max-width: 70vw;
   margin: 0 auto;
-}
-main#home select#mode {
-  max-width: 8rem;
 }
 
 main#results h2#search-results, main#results #search-results.h2 {

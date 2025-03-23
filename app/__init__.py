@@ -45,6 +45,9 @@ def create_app() -> Flask:
     app.jinja_env.globals["block_ai_scrapers"] = bool(
         _app_settings.get("block_ai_scrapers", False)
     )
+    app.jinja_env.globals["enable_query_expansion_mode"] = bool(
+        _app_settings.get("enable_query_expansion_mode", False)
+    )
     app.jinja_env.globals["current_year"] = current_year
     app.jinja_env.globals["git_repository"] = _app_settings.get("git_repository")
     app.jinja_env.globals["max_query_length"] = _app_settings["max_query_length"]

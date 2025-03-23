@@ -1,3 +1,44 @@
+<footer class="mt-auto pb-2 mx-1">
+    <div class="footer links">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <ul class="ps-0">
+                        <li class="pe-2"><a href="{{ url_for('main.help_page') }}">Help</a></li>
+                        <li class="pe-2"><a href="{{ url_for('main.about') }}">About</a></li>
+                        <li class="pe-2"><a href="https://marsupialgurgle.com/">Marsupial Gurgle</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer copyright">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div>
+                        Site Copyright &copy; <a href="https://linhpham.org/">Linh Pham</a>
+                        (<a href="https://linh.social/@qlp" rel="me">Mastodon</a> |
+                        <a href="https://bsky.app/profile/linh.social" rel="me">Bluesky</a>)
+                        2025{% if current_year(time_zone) | int > 2025 %}&ndash;{{ current_year(time_zone)}}{% endif %}.
+                    </div>
+                </div>
+                <div class="col-lg-6 text-lg-end">
+                    <div>
+                        Version: {{ app_version }}
+                        (<a href="https://github.com/questionlp/search.marsupialgurgle.com">Source Code</a>)
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<!--
 <footer class="mt-auto pt-3 pb-2 mx-1">
     {% if not exclude_footer_links %}
     <div class="footer links">
@@ -34,3 +75,4 @@
         </div>
     </div>
 </footer>
+-->

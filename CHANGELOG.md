@@ -1,5 +1,21 @@
 # Application Change Log
 
+## Version 1.2.0
+
+### Application Changes
+
+- Added experimental support for natural language search mode with query expansion with additional "Expanded" search mode selection dropdown
+  - This feature is controlled by a feature flag set in `app_settings.json` with the `enable_query_expansion_mode` key. By default, the value is set to `false`
+  - Added a section to the Help Page with a description of the new Expanded search mode. The section is only disabled with the feature flag is set to `true` in `app_settings.json`
+  - If a query is submitted with `mode=3` denoting expanded search mode and the feature flag set to `false`, set the search mode back to natural language search mode
+  - Add a warning message at the top of the search results when a search mode value is not available or is incorrect, while switching the search mode back to the default
+- Added tooltip on the search mode selection dropdown on both the main page and in the navigation bar and set the cursor to `help` when hovering over the selection dropdown
+- Updated the page footer layout and content to render better on smaller screens
+
+### Development Changes
+
+- Updated tests to include searches with natural language search mode with query expansion
+
 ## Version 1.1.1
 
 ### Application Changes
