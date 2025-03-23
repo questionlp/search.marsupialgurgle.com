@@ -12433,8 +12433,8 @@ body h3,
 body .h3 {
   font-size: 1.2rem;
 }
-
-select#mode {
+html select#mode,
+body select#mode {
   max-width: 8rem;
   cursor: help;
   container: body;

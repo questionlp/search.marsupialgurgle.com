@@ -107,6 +107,7 @@ def search() -> str:
     except ValueError:
         page = 1
 
+    valid_search_mode: bool = False
     try:
         search_mode: SearchMode = SearchMode(int(request_data.get("mode", 1)))
 
@@ -117,12 +118,10 @@ def search() -> str:
             and search_mode == SearchMode.EXPANDED
         ):
             search_mode = SearchMode.NATURAL
-            valid_search_mode: bool = False
-
-        valid_search_mode: bool = True
+        else:
+            valid_search_mode = True
     except ValueError:
         search_mode: SearchMode = SearchMode.NATURAL
-        valid_search_mode: bool = False
 
     results_per_page: int = current_app.config["app_settings"]["results_per_page"]
     offset: int = (page - 1) * results_per_page
@@ -170,5 +169,8 @@ def search() -> str:
         )
 
     return render_template(
-        "pages/search.html", search_query=query, search_mode=search_mode.value
+        "pages/search.html",
+        search_query=query,
+        search_mode=search_mode.value,
+        valid_search_mode=valid_search_mode,
     )

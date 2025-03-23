@@ -10,6 +10,7 @@
   - If a query is submitted with `mode=3` denoting expanded search mode and the feature flag set to `false`, set the search mode back to natural language search mode
   - Add a warning message at the top of the search results when a search mode value is not available or is incorrect, while switching the search mode back to the default
 - Added tooltip on the search mode selection dropdown on both the main page and in the navigation bar and set the cursor to `help` when hovering over the selection dropdown
+- Changed the search input field type from `text` to `search` on the home page to match the search input field in the navigation bar
 - Updated the page footer layout and content to render better on smaller screens
 
 ### Development Changes
