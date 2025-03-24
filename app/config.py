@@ -36,6 +36,10 @@ def load_app_settings(
         max_query_length = min(max_query_length, max_query_string_length)
         app_settings["max_query_length"] = max_query_length
 
+        app_settings["enable_query_expansion_mode"] = bool(
+            app_settings.get("enable_query_expansion_mode", False)
+        )
+
         # Process time zone configuration settings
         time_zone = app_settings.get("time_zone", app_time_zone)
         time_zone_object, time_zone_string = time_zone_parser(time_zone)

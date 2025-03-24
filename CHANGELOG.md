@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.2.1
+
+### Application Changes
+
+- Fixed missing code to pull `enable_query_expansion_mode` into `app_settings` dictionary
+
 ## Version 1.2.0
 
 ### Application Changes
