@@ -107,8 +107,19 @@ def search() -> str:
     except ValueError:
         page = 1
 
+    valid_search_mode: bool = False
     try:
         search_mode: SearchMode = SearchMode(int(request_data.get("mode", 1)))
+
+        # Only allow query expansion mode if the feature flag is enabled,
+        # otherwise use the default natural language search mode instead
+        if (
+            not current_app.config["app_settings"]["enable_query_expansion_mode"]
+            and search_mode == SearchMode.EXPANDED
+        ):
+            search_mode = SearchMode.NATURAL
+        else:
+            valid_search_mode = True
     except ValueError:
         search_mode: SearchMode = SearchMode.NATURAL
 
@@ -148,6 +159,7 @@ def search() -> str:
             "pages/search.html",
             search_query=query,
             search_mode=search_mode.value,
+            valid_search_mode=valid_search_mode,
             current_page=page,
             total_count=total_count,
             total_pages=total_pages,
@@ -157,5 +169,8 @@ def search() -> str:
         )
 
     return render_template(
-        "pages/search.html", search_query=query, search_mode=search_mode.value
+        "pages/search.html",
+        search_query=query,
+        search_mode=search_mode.value,
+        valid_search_mode=valid_search_mode,
     )

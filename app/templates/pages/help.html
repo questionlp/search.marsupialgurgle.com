@@ -94,6 +94,21 @@ Help Page | Hey Gurgle: Marsupial Gurgle Audio Archive Search
                 </table>
             </div>
         </div>
+
+        {% if enable_query_expansion_mode %}
+        <h3>Expanded Mode</h3>
+        <p>
+            (Experimental) Expanded mode refers to the natural language mode with
+            query expansion enabled that can be useful for searching for words that
+            may appear in conjunction with other words not included in the search
+            query.
+        </p>
+
+        <p>
+            Using expanded mode can lead to lesser relevant or non-relevant items
+            being included in the search results.
+        </p>
+        {% endif %}
     </div>
 </main>
 {% endblock content %}

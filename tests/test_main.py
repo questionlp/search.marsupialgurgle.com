@@ -68,7 +68,8 @@ def test_help_page(client: FlaskClient) -> None:
 
 
 @pytest.mark.parametrize(
-    "query, mode", [("andrew", 1), ('"in the year 2525"', 1), ("luke", 2)]
+    "query, mode",
+    [("andrew", 1), ('"in the year 2525"', 1), ("luke", 2), ("gobble", 3)],
 )
 def test_search(client: FlaskClient, query: str, mode: int) -> None:
     """Testing main.search with queries."""
@@ -83,7 +84,9 @@ def test_search(client: FlaskClient, query: str, mode: int) -> None:
     assert "noindex, nofollow" in response.text
 
 
-@pytest.mark.parametrize("query, mode, page", [("andrew", 1, 5), ("luke", 2, 1)])
+@pytest.mark.parametrize(
+    "query, mode, page", [("andrew", 1, 5), ("luke", 2, 1), ("drop", 3, 4)]
+)
 def test_search_page_number(
     client: FlaskClient, query: str, mode: int, page: int
 ) -> None:
@@ -109,7 +112,12 @@ def test_search_no_query(client: FlaskClient) -> None:
 
 
 @pytest.mark.parametrize(
-    "query, mode", [("THIS_WONT_RETURN_RESULTS", 1), ("THIS_WONT_RETURN_RESULTS", 2)]
+    "query, mode",
+    [
+        ("THIS_WONT_RETURN_RESULTS", 1),
+        ("THIS_WONT_RETURN_RESULTS", 2),
+        ("THIS_WONT_RETURN_RESULTS", 3),
+    ],
 )
 def test_search_no_results(client: FlaskClient, query: str, mode: int) -> None:
     """Testing main.search without a query that yields no results."""

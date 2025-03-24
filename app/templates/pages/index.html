@@ -9,12 +9,17 @@
     <form class="my-3" role="search" method="GET" action="{{ url_for('main.search') }}">
         <label class="visually-hidden" for="query">Search</label>
         <div id="main-search-input" class="input-group my-3">
-            <input type="text" class="form-control" id="query" name="query"
+            <input type="search" class="form-control" id="query" name="query"
                 maxlength="{{ max_query_length }}" placeholder="Search Audio Clips">
-            <select class="form-select" aria-label="Select search mode" id="mode" name="mode">
-                <option selected value="1" title="Natural language search mode">Default
-                </option>
+            <select class="form-select" id="mode" name="mode"
+                aria-label="Select search mode" data-container="body"
+                data-bs-toggle="tooltip" data-bs-placement="top"
+                data-bs-title="View the Help page for more information">
+                <option selected value="1" title="Natural language search mode">Default</option>
                 <option value="2" title="Boolean search mode">Boolean</option>
+                {% if enable_query_expansion_mode %}
+                <option value="3" title="Query expansion mode">Expanded</option>
+                {% endif %}
             </select>
             <button type="submit" class="btn btn-primary me-0" title="Search">
                 <i class="bi bi-search"></i>

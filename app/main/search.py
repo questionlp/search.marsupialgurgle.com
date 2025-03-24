@@ -20,6 +20,7 @@ class SearchMode(Enum):
 
     NATURAL = 1
     BOOLEAN = 2
+    EXPANDED = 3
 
 
 def search_clips(
@@ -61,6 +62,14 @@ def search_clips(
                     "JOIN tags t ON t.clip_id = c.id "
                     "WHERE MATCH (t.title, t.album, t.artist) "
                     "AGAINST (%s IN BOOLEAN MODE)"
+                )
+            case SearchMode.EXPANDED:
+                query = (
+                    "SELECT COUNT(c.id) AS total_count "
+                    "FROM clips c "
+                    "JOIN tags t ON t.clip_id = c.id "
+                    "WHERE MATCH (t.title, t.album, t.artist) "
+                    "AGAINST (%s WITH QUERY EXPANSION)"
                 )
         cursor.execute(query, (search_query,))
         result = cursor.fetchone()
@@ -115,6 +124,24 @@ def search_clips(
                     query,
                     (
                         search_query,
+                        search_query,
+                        results_per_page,
+                        offset,
+                    ),
+                )
+            case SearchMode.EXPANDED:
+                query = (
+                    "SELECT c.id, c.key, c.mp3, c.m4a, c.m4r, t.artist, t.album, "
+                    "t.title, t.year "
+                    "FROM clips c "
+                    "JOIN tags t ON t.clip_id = c.id "
+                    "WHERE MATCH (t.title, t.album, t.artist) "
+                    "AGAINST (%s WITH QUERY EXPANSION) "
+                    "LIMIT %s OFFSET %s"
+                )
+                cursor.execute(
+                    query,
+                    (
                         search_query,
                         results_per_page,
                         offset,
