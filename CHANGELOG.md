@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.2.2
+
+### Application Changes
+
+- Update list of AI bots in robots.txt when `block_ai_scrapers` in `app_settings.json` is set to `true`
+
 ## Version 1.2.1
 
 ### Application Changes
