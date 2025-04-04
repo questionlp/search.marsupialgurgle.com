@@ -1,5 +1,15 @@
 # Application Change Log
 
+## Version 1.2.3
+
+### Application Changes
+
+- Fixed a typo that lead to the `use_minified_css` configuration key in `app_settings.json` to not be read correctly on application startup
+
+### Component Changes
+
+- Upgrade Bootstrap from 5.3.3 to 5.3.4
+
 ## Version 1.2.2
 
 ### Application Changes
