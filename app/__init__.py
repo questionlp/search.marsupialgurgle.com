@@ -59,7 +59,7 @@ def create_app() -> Flask:
     app.jinja_env.globals["time_zone"] = _app_settings["app_time_zone"]
     app.jinja_env.globals["umami"] = _app_settings["umami"]
     app.jinja_env.globals["use_minified_css"] = bool(
-        _app_settings.get("use_minified_css, False")
+        _app_settings.get("use_minified_css", False)
     )
 
     # Register Flask Sanitize Escape
