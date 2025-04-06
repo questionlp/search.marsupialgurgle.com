@@ -1,5 +1,15 @@
 # Application Change Log
 
+## Version 1.2.4
+
+### Application Changes
+
+- Add "Support Marsupial Gurgle" link to footer
+
+### Component Changes
+
+- Upgrade Bootstrap from 5.3.4 to 5.3.5
+
 ## Version 1.2.3
 
 ### Application Changes
