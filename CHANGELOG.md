@@ -2,6 +2,8 @@
 
 ## Version 1.2.5
 
+### Application Changes
+
 - Correct the "Support Marsupial Gurgle" link in the footer
 
 ## Version 1.2.4
