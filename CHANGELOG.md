@@ -1,5 +1,9 @@
 # Application Change Log
 
+## Version 1.2.5
+
+- Correct the "Support Marsupial Gurgle" link in the footer
+
 ## Version 1.2.4
 
 ### Application Changes
