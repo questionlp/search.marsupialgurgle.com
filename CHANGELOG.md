@@ -1,5 +1,13 @@
 # Application Change Log
 
+## Version 1.2.6
+
+### Application Changes
+
+- Upgrade Bootstrap from 5.3.5 to 5.3.6
+- Upgrade Bootstrap Icons from 1.13.1 to 1.13.1
+- Add `deploy` script in package.json to make building and copying CSS, JS and font files easier
+
 ## Version 1.2.5
 
 ### Application Changes
