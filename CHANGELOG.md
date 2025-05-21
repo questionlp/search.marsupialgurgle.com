@@ -1,5 +1,17 @@
 # Application Change Log
 
+## Version 1.2.7
+
+### Component Changes
+
+- Upgrade Flask from 3.1.0 to 3.1.1
+
+### Development Changes
+
+- Upgrade ruff from 0.9.10 to 0.11.9
+- Upgrade pytest from 8.3.3 to 8.3.5
+- Upgrade pytest-cov from 6.0.0 to 6.1.1
+
 ## Version 1.2.6
 
 ### Application Changes
