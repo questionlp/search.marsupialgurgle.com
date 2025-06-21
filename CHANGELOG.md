@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.2.8
+
+### Component Changes
+
+- Upgrade Boostrap from 5.3.6 to 5.3.7
+
 ## Version 1.2.7
 
 ### Component Changes
