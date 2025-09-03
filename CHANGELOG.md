@@ -4,7 +4,8 @@
 
 ### Component Changes
 
-- Upgrade Bootstrap from 5.3.7 to 5.3.8
+- Upgraded Bootstrap from 5.3.7 to 5.3.8
+- Upgraded pytz from 2025.1 to 2025.2
 
 ## Version 1.2.8
 
