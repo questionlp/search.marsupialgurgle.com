@@ -1,11 +1,21 @@
+[project]
+name = "search.marsupialgurgle.com"
+authors = [
+    {name = "Linh Pham", email = "dev@wwdt.me"}
+]
+description = "Marsupial Gurgle Audio Archive Search Engine"
+readme = {file = "README.md", content-type = "text/markdown"}
+license = "MIT"
+requires-python = ">=3.12"
+
 [tool.pytest.ini_options]
-minversion = "8.3"
+minversion = "8.4"
 filterwarnings = ["ignore::DeprecationWarning:mysql.*:"]
 norecursedirs = [".git", "venv", "dist", ".eggs", ".egg-info"]
 
 [tool.ruff]
-required-version = ">= 0.9.0"
-target-version = "py310"
+required-version = ">= 0.13.0"
+target-version = "py312"
 
 exclude = [
     "migrations",

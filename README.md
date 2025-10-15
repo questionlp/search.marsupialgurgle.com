@@ -7,20 +7,24 @@ Flask-based web application that allows users to search the audio clips that hav
 ## Requirements
 
 - Node.js v22 LTS or newer
-- Python 3.10 or newer
+- Python 3.12 or newer
 - MySQL Server 8.4 or newer
 
 ## Installation
 
 Refer to [INSTALLING.md](./INSTALLING.md) for information on how to set up an instance of this web application that can be served through NGINX and Gunicorn.
 
-## Changelog
+## Changes
 
 For a list of changes between release versions of the application, refer to the included [CHANGELOG.md](./CHANGELOG.md).
 
 ## Contributing
 
 If you would like contribute to this project, please make sure to review both the [Code of Conduct](./CODE_OF_CONDUCT.md) and the [Contributing](./CONTRIBUTING.md) documents in this repository.
+
+### AI Generated Code
+
+Please note that this project does not accept pull requests or bugfixes that include code that has been partially or wholly generated using AI.
 
 ## Licenses and Acknowledgements
 

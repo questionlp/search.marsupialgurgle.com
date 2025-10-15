@@ -1,3 +1,6 @@
+// IBM Design Colors
+@use "./colors-ibm" as ibm;
+
 html,
 body {
     h2 {
@@ -28,6 +31,11 @@ nav {
         min-width: 40vw;
         max-width: 60vw;
     }
+}
+
+nav.navbar-contrast {
+    background-color: ibm.$white;
+    border-bottom: 2px solid;
 }
 
 main#home {
@@ -72,6 +80,12 @@ footer {
                 display: inline;
             }
         }
+    }
+}
+
+[data-bs-theme="dark"] {
+    nav.navbar-contrast {
+        background-color: ibm.$black;
     }
 }
 
