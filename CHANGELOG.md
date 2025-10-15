@@ -1,5 +1,27 @@
 # Application Change Log
 
+## Version 1.3.0
+
+### Application Changes
+
+- Python 3.12 is now the minimum supported version
+- Changed the page background color for the dark color theme from IBM Gray 100 to IBM Gray 90 to improve readability
+- Changed the top navigation bar to be white for the light color theme and black for the dark color theme and added a 2 pixel bottom border to make it stand out from the rest of the content
+
+### Component Changes
+
+- Upgraded MySQL Connector/Python from 9.1.0 to 9.4.0
+
+### Development Changes
+
+- Added project information to `pyproject.toml` and updated additional settings
+  - Increased the minimum version of pytest from 8.3 to 8.4
+  - Increased the minimum required version of Ruff from 0.9.0 to 0.13.0
+  - Updated the target Python version from `py310` to `py312`
+- Upgraded Ruff from 0.11.9 to 0.13.3
+- Upgraded pytest from 8.3.5 to 8.4.1
+- Upgraded pytest-cov from 6.1.1 to 6.2.1
+
 ## Version 1.2.9
 
 ### Component Changes

@@ -1551,8 +1551,8 @@
   color-scheme: dark;
   --bs-body-color: #f4f4f4;
   --bs-body-color-rgb: 244, 244, 244;
-  --bs-body-bg: #161616;
-  --bs-body-bg-rgb: 22, 22, 22;
+  --bs-body-bg: #262626;
+  --bs-body-bg-rgb: 38, 38, 38;
   --bs-emphasis-color: #ffffff;
   --bs-emphasis-color-rgb: 255, 255, 255;
   --bs-secondary-color: rgba(244, 244, 244, 0.75);
@@ -12454,6 +12454,10 @@ body select#mode {
   container: body;
 }
 
+nav {
+  background-color: #ffffff;
+  border-bottom: 2px solid;
+}
 nav h1, nav .h1 {
   line-height: 1;
 }
@@ -12492,6 +12496,10 @@ footer .footer.links ul {
 }
 footer .footer.links ul li {
   display: inline;
+}
+
+[data-bs-theme=dark] nav {
+  background-color: #000000;
 }
 
 @media only screen and (max-width: 768px) {
