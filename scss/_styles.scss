@@ -19,9 +19,6 @@ body {
 }
 
 nav {
-    background-color: ibm.$white;
-    border-bottom: 2px solid;
-
     h1 {
         line-height: 1;
 
@@ -34,6 +31,11 @@ nav {
         min-width: 40vw;
         max-width: 60vw;
     }
+}
+
+nav.navbar-contrast {
+    background-color: ibm.$white;
+    border-bottom: 2px solid;
 }
 
 main#home {
@@ -82,7 +84,7 @@ footer {
 }
 
 [data-bs-theme="dark"] {
-    nav {
+    nav.navbar-contrast {
         background-color: ibm.$black;
     }
 }

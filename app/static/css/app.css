@@ -12454,10 +12454,6 @@ body select#mode {
   container: body;
 }
 
-nav {
-  background-color: #ffffff;
-  border-bottom: 2px solid;
-}
 nav h1, nav .h1 {
   line-height: 1;
 }
@@ -12467,6 +12463,11 @@ nav h1 .navbar-brand, nav .h1 .navbar-brand {
 nav input#query {
   min-width: 40vw;
   max-width: 60vw;
+}
+
+nav.navbar-contrast {
+  background-color: #ffffff;
+  border-bottom: 2px solid;
 }
 
 main#home h2#main-brand, main#home #main-brand.h2 {
@@ -12498,7 +12499,7 @@ footer .footer.links ul li {
   display: inline;
 }
 
-[data-bs-theme=dark] nav {
+[data-bs-theme=dark] nav.navbar-contrast {
   background-color: #000000;
 }
 
