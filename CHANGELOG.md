@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.3.2
+
+### Application Changes
+
+- Removed unnecessary `aria-labelledby` in the page navigation
+
 ## Version 1.3.1
 
 ### Application Changes
