@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.3.1
+
+### Application Changes
+
+- Update the list of AI bots in the `robots.txt` template to reflect the latest version published at [ai.robots.txt](https://github.com/ai-robots-txt/ai.robots.txt)
+
 ## Version 1.3.0
 
 ### Application Changes
