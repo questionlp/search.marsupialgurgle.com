@@ -1,4 +1,4 @@
-# Copyright (c) 2025 Linh Pham
+# Copyright (c) 2025-2026 Linh Pham
 # search.marsupialgurgle.com is released under the terms of the MIT License
 # SPDX-License-Identifier: MIT
 #
