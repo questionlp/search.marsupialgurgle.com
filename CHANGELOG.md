@@ -1,5 +1,23 @@
 # Application Change Log
 
+## Version 1.4.0
+
+### Application Changes
+
+- Updated copyright year
+
+### Component Changes
+
+- Upgraded Flask from 3.1.1 to 3.1.2
+- Upgraded gunicorn from 23.0.0 to 24.1.1
+- Upgraded MySQL Connector/Python from 9.4.0 to 9.5.0
+
+### Development Changes
+
+- Upgraded Ruff from 0.13.3 to 0.14.14
+- Upgraded pytest from 8.4.1 to 9.0.2
+- Upgraded pytest-cov from 6.2.1 to 7.0.0
+
 ## Version 1.3.2
 
 ### Application Changes
