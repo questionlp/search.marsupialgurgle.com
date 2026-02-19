@@ -15,8 +15,7 @@
         "copy-fonts": "cp -r node_modules/@ibm/plex-sans/fonts/* node_modules/@ibm/plex-mono/fonts/* app/static/fonts/",
         "copy-bundle": "cp node_modules/bootstrap/dist/js/bootstrap.bundle.min.js node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map app/static/js/",
         "copy-icons": "cp -r node_modules/bootstrap-icons app/static/ && rm -r app/static/bootstrap-icons/icons",
-        "deploy": "npm run compile && npm run compile-minified && npm run copy-fonts && npm run copy-bundle && npm run copy-icons",
-        "serve": "serve -CSd app/"
+        "deploy": "npm run compile && npm run compile-minified && npm run copy-fonts && npm run copy-bundle && npm run copy-icons"
     },
     "dependencies": {
         "@ibm/plex-mono": "^1.1.0",
@@ -24,7 +23,6 @@
         "bootstrap": "^5.3.8",
         "bootstrap-icons": "^1.13.1",
         "css-minify": "^2.1.0",
-        "sass": "^1.85.1",
-        "serve": "^14.2.4"
+        "sass": "^1.85.1"
     }
 }
