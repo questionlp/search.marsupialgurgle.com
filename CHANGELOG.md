@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.4.1
+
+### Component Changes
+
+- Upgraded Flask from 3.1.2 to 3.1.3
+
 ## Version 1.4.0
 
 ### Application Changes
