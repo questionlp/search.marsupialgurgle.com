@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.4.2
+
+### Component Changes
+
+- Upgraded svgo and immutable versions in `package-lock.json` to fix vulnerabilities found in those packages
+
 ## Version 1.4.1
 
 ### Component Changes
