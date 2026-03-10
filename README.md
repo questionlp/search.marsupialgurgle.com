@@ -30,7 +30,7 @@ Please note that this project does not accept pull requests or bugfixes that inc
 
 This web application is licensed under the terms of the [MIT License](./LICENSE).
 
-Although this project interfaces with [MySQL Connector/Python](https://github.com/mysql/mysql-connector-python), licensed under version 2 of the GNU General Public License (GPLv2) and is also subject to the terms included in [Universal FOSS Exception, version 1.0](https://oss.oracle.com/licenses/universal-foss-exception/). The exception permits this library to be licensed under an OSI-approved or a license categorized as "free" by the Freedom Software Foundation (FSF), such as the MIT License.
+Although this project interfaces with [MySQL Connector/Python](https://github.com/mysql/mysql-connector-python), licensed under version 2 of the GNU General Public License (GPLv2) and is also subject to the terms included in [Universal FOSS Exception, version 1.0](https://oss.oracle.com/licenses/universal-foss-exception/). The exception permits this library to be licensed under an OSI-approved or a license categorized as "free" by the Free Software Foundation (FSF), such as the MIT License.
 
 [Bootstrap](https://github.com/twbs/bootstrap) and [Bootstrap Icons](https://github.com/twbs/icons) are both licensed under the terms of the [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
 
