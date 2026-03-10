@@ -30,6 +30,12 @@ Please note that this project does not accept pull requests or bugfixes that inc
 
 This web application is licensed under the terms of the [MIT License](./LICENSE).
 
+Although this project interfaces with [MySQL Connector/Python](https://github.com/mysql/mysql-connector-python), licensed under version 2 of the GNU General Public License (GPLv2) and is also subject to the terms included in [Universal FOSS Exception, version 1.0](https://oss.oracle.com/licenses/universal-foss-exception/). The exception permits this library to be licensed under an OSI-approved or a license categorized as "free" by the Free Software Foundation (FSF), such as the MIT License.
+
+[Bootstrap](https://github.com/twbs/bootstrap) and [Bootstrap Icons](https://github.com/twbs/icons) are both licensed under the terms of the [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE).
+
+[IBM Plex](https://github.com/IBM/plex/) is licensed under the terms of the [SIL Open Font License Version 1.1](https://github.com/IBM/plex/blob/master/LICENSE.txt).
+
 Additional packages that are distributed with the web application or reference available APIs
 from libraries are distributed under the corresponding license terms listed below:
 
@@ -41,8 +47,6 @@ from libraries are distributed under the corresponding license terms listed belo
   - [MIT License](https://github.com/mayur19/flask-sanitize-escape/blob/main/LICENSE)
 - Gunicorn
   - [MIT License](https://github.com/benoitc/gunicorn/blob/master/LICENSE)
-- MySQL Connector/Python
-  - [GNU General Public License v2](https://downloads.mysql.com/docs/licenses/connector-python-9.2-gpl-en.pdf)
 - python-slugify
   - [MIT License](https://github.com/un33k/python-slugify/blob/master/LICENSE)
 - pytz
@@ -50,11 +54,5 @@ from libraries are distributed under the corresponding license terms listed belo
 
 ### Web Application Frontend
 
-- Bootstrap
-  - [MIT License](https://github.com/twbs/bootstrap/blob/main/LICENSE)
 - Bootstrap Color Mode Toggler
   - [Creative Commons Attribution 3.0 Unported](https://creativecommons.org/licenses/by/3.0/)
-- Bootstrap Icons
-  - [MIT License](https://github.com/twbs/icons/blob/main/LICENSE)
-- IBM Plex Mono and Sans
-  - [SIL Open Font License 1.1](https://github.com/IBM/plex/blob/master/LICENSE.txt)
