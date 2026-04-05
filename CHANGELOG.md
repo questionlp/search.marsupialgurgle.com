@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.4.3
+
+### Application Changes
+
+- Changed GitHub repository references to point to the [search.marsupialgurgle.com](https://codeberg.org/qlp/search.marsupialgurgle.com) repository on Codeberg
+
 ## Version 1.4.2
 
 ### Component Changes
