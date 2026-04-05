@@ -4,7 +4,7 @@
 
 Flask-based web application that allows users to search the audio clips that have been uploaded to [Marsupial Gurgle](https://marsupialgurgle.com/).
 
-**Note:** The primary version of this repository now resides on Codeberg as [search.marsupialgurgle.com](https://codeberg.org/qlp/search.marsupialgurgle.com). The GitHub repository is now a mirror of the Codeberg repository.
+**Note:** The authoritative version of this repository now resides on Codeberg as [search.marsupialgurgle.com](https://codeberg.org/qlp/search.marsupialgurgle.com) and mirrors changes to GitHub. Going forward, issues and pull requests should be created on Codeberg rather than GitHub.
 
 ## Requirements
 
