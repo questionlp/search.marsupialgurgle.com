@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.4.3-post0 (Non-Release)
+
+### Development Changes
+
+- Upgraded pytest from 9.0.2
+
 ## Version 1.4.3
 
 ### Application Changes
