@@ -1,5 +1,15 @@
 # Application Change Log
 
+## Version 1.4.4
+
+### Component Changes
+
+- Upgraded IBM Plex Mono from 1.1.0 to 2.5.0
+
+### Development Changes
+
+- Added `.editorconfig` file to project
+
 ## Version 1.4.3-post0 (Non-Release)
 
 ### Development Changes
