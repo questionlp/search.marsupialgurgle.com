@@ -8,7 +8,7 @@
 
 ### Development Changes
 
-- Updated `.editorconfig` file to project
+- Updated `.editorconfig` file
 
 ## Version 1.4.3-post0 (Non-Release)
 
