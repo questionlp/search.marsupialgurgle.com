@@ -25,16 +25,9 @@
     "css-minify": "^2.1.0",
     "sass": "^1.85.1"
   },
-  "devDependencies": {
-    "@lavamoat/allow-scripts": "^5.0.2",
-    "@lavamoat/preinstall-always-fail": "^3.0.0"
-  },
-  "lavamoat": {
-    "allowScripts": {
-      "@ibm/plex-mono#2.5.0": false,
-      "@ibm/plex-sans#1.1.0": false,
-      "@lavamoat/preinstall-always-fail#3.0.0": false,
-      "sass>@parcel/watcher#2.5.1": false
-    }
+  "allowScripts": {
+    "@ibm/plex-mono#2.5.0": false,
+    "@ibm/plex-sans#1.1.0": false,
+    "sass>@parcel/watcher#2.5.1": false
   }
 }
