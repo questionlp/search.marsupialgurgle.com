@@ -1,5 +1,15 @@
 # Application Change Log
 
+## Version 1.5.0
+
+### Application Changes
+
+- Added a feature that would randomly change the word "Gurgle" with one of the following variations in either the page navigation bar or body based on a spoof from [TBTL #4781](https://www.tbtl.net/episodes/4781)
+  - Gorgle
+  - Grgle
+  - Gurgle
+  - Gürgle
+
 ## Version 1.4.4
 
 ### Component Changes

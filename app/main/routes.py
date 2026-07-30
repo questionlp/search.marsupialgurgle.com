@@ -6,6 +6,7 @@
 """Main Application Routes."""
 
 import math
+import random
 from pathlib import Path
 
 from flask import (
@@ -22,7 +23,7 @@ from mysql.connector.pooling import PooledMySQLConnection
 
 from app.main.clip import retrieve_clip_info
 from app.main.search import SearchMode, search_clips
-from app.utilities import pagination_list
+from app.utilities import gurgle_name, pagination_list
 
 blueprint = Blueprint("main", __name__)
 
@@ -30,13 +31,15 @@ blueprint = Blueprint("main", __name__)
 @blueprint.route("/")
 def index() -> str:
     """View: Landing Page."""
-    return render_template("pages/index.html", exclude_footer_links=False)
+    return render_template(
+        "pages/index.html", exclude_footer_links=False, gurgle=gurgle_name()
+    )
 
 
 @blueprint.route("/about")
 def about() -> str:
     """View: About Page."""
-    return render_template("pages/about.html")
+    return render_template("pages/about.html", gurgle=gurgle_name())
 
 
 @blueprint.route("/clip")
@@ -60,20 +63,26 @@ def clip_info() -> str:
     )
 
     if clip and "error" in clip:
-        return render_template("pages/clip.html", clip_key=_key, error=clip["error"])
+        return render_template(
+            "pages/clip.html", clip_key=_key, error=clip["error"], gurgle=gurgle_name()
+        )
 
     if clip:
         return render_template(
-            "pages/clip.html", clip_key=_key, clip=clip, expand_info=True
+            "pages/clip.html",
+            clip_key=_key,
+            clip=clip,
+            expand_info=True,
+            gurgle=gurgle_name(),
         )
 
-    return render_template("pages/clip.html", clip_key=_key)
+    return render_template("pages/clip.html", clip_key=_key, gurgle=gurgle_name())
 
 
 @blueprint.route("/help")
 def help_page() -> str:
     """View: Help Page."""
-    return render_template("pages/help.html")
+    return render_template("pages/help.html", gurgle=gurgle_name())
 
 
 @blueprint.route("/robots.txt")
@@ -95,7 +104,7 @@ def search() -> str:
     query: str | None = request_data.get("query")
 
     if not query:
-        return render_template("pages/search.html")
+        return render_template("pages/search.html", gurgle=gurgle_name())
 
     # Strip whitespaces from and enforce length limit on query string
     query = query.strip()
@@ -144,6 +153,7 @@ def search() -> str:
             search_query=query,
             search_mode=search_mode.value,
             error=results_info["error"],
+            gurgle=gurgle_name(),
         )
 
     total_count: int = results_info["total_count"]
@@ -166,6 +176,7 @@ def search() -> str:
             pagination_list=_pagination_list,
             returned_count=returned_count,
             search_results=results,
+            gurgle=gurgle_name(),
         )
 
     return render_template(
@@ -173,4 +184,5 @@ def search() -> str:
         search_query=query,
         search_mode=search_mode.value,
         valid_search_mode=valid_search_mode,
+        gurgle=gurgle_name(),
     )

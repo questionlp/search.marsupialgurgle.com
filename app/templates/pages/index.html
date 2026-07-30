@@ -2,10 +2,11 @@
 {% block page_title %}Hey Gurgle: Marsupial Gurgle Audio Archive Search{% endblock page_title %}
 
 {% block content %}
+
 {% include "core/nav_home.html" %}
 
 <main id="home" class="mt-auto mx-5">
-    <h2 id="main-brand" class="text-center">Hey Gurgle</h2>
+    <h2 id="main-brand" class="text-center">Hey <span aria-description="Gurgle">{{ gurgle }}</span></h2>
     <form class="my-3" role="search" method="GET" action="{{ url_for('main.search') }}">
         <label class="visually-hidden" for="query">Search</label>
         <div id="main-search-input" class="input-group my-3">
