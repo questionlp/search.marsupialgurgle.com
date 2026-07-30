@@ -5,6 +5,7 @@
 # vim: set noai syntax=python ts=4 sw=4:
 """Search Utility Functions."""
 
+import random
 from datetime import datetime
 
 import pytz
@@ -17,6 +18,20 @@ def current_year(time_zone: pytz.timezone = _utc_timezone):
     """Return the current year."""
     now = datetime.now(time_zone)
     return now.strftime("%Y")
+
+
+def gurgle_name() -> str:
+    """Return a random variation of the word 'Gurgle'."""
+    random.seed()
+    random_number: int = random.randint(0, 100)  # noqa: S311 (not used for cryptography)
+    if random_number <= 15:
+        return "Gurgle"
+    elif random_number > 15 and random_number <= 40:
+        return "Gorgle"
+    elif random_number > 40 and random_number <= 65:
+        return "Gürgle"
+    else:
+        return "Grgle"
 
 
 def pagination_list(current_page: int, total_pages: int) -> list[int | None] | None:
