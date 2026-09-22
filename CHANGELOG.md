@@ -1,5 +1,12 @@
 # Application Change Log
 
+## Version 1.5.1
+
+### Application Changes
+
+- Changed the appearances of links in the footer to use a dotted bottom border rather than the underline to make them stand out
+- Updated page footer section to include AI policy
+
 ## Version 1.5.0
 
 ### Application Changes
