@@ -12498,6 +12498,13 @@ footer .footer.links ul {
 footer .footer.links ul li {
   display: inline;
 }
+footer a,
+footer a:link,
+footer a:hover,
+footer a:visited {
+  border-bottom: 1px dotted;
+  text-decoration: none;
+}
 
 [data-bs-theme=dark] nav.navbar-contrast {
   background-color: #000000;

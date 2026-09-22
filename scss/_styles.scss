@@ -81,6 +81,14 @@ footer {
             }
         }
     }
+
+    a,
+    a:link,
+    a:hover,
+    a:visited {
+        border-bottom: 1px dotted;
+        text-decoration: none;
+    }
 }
 
 [data-bs-theme="dark"] {
