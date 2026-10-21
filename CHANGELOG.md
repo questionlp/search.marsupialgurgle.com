@@ -1,5 +1,24 @@
 # Application Change Log
 
+## Version 1.6.0
+
+### Component Changes
+
+- Updated NPM dependencies to resolve security vulnerabilities in transient dependencies
+- Upgraded gunicorn from 24.1.1 to 26.2.0
+- Upgraded MySQL Connector/Python from 9.5.0 to 26.7.0
+- Upgraded python-slugify from 8.0.4 to 9.1.3
+- Upgraded pytz from 2025.2 to 2026.5
+- Upgraded Bootstrap Icons from 1.13.1 to 1.13.2
+
+### Development Changes
+
+- Upgraded pytest from 9.0.3 to 9.1.1
+  - Minimum version of pytest in `pyproject.toml` has been increased to 9.0
+- Upgraded pytest-cov from 7.0.0 to 7.1.0
+- Upgraded ruff from 0.14.14 to 0.17.0
+  - Minimum version of ruff in `pyproject.toml` has been increased to 0.17.0 to match
+
 ## Version 1.5.1
 
 ### Application Changes
