@@ -1,5 +1,11 @@
 # Application Change Log
 
+## Version 1.6.1
+
+### Component Changes
+
+- Upgraded Bootstrap from 5.3.8 to 5.3.9
+
 ## Version 1.6.0
 
 ### Component Changes
