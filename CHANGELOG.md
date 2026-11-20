@@ -1,5 +1,12 @@
 # Application Change Log
 
+## Version 1.6.2
+
+### Component Changes
+
+- Upgraded gunicorn from 26.2.0 to 27.0.1
+- Upgraded IBM Plex Sans from 1.1.0 to 2.0.0
+
 ## Version 1.6.1
 
 ### Component Changes
