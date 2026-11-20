@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "@ibm/plex-mono": "^2.5.0",
-    "@ibm/plex-sans": "^1.1.0",
+    "@ibm/plex-sans": "^2.0.0",
     "bootstrap": "^5.3.9",
     "bootstrap-icons": "^1.13.2",
     "css-minify": "^1.1.0",
@@ -27,6 +27,6 @@
   },
   "allowScripts": {
     "@ibm/plex-mono#2.5.0": false,
-    "@ibm/plex-sans#1.1.0": false
+    "@ibm/plex-sans#2.0.0": false
   }
 }
